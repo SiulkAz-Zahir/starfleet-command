@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starfleet Command Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/lcars.css">
+</head>
+<body>
+<div class="shell">
+  <nav class="console-rail">
+    <div class="elbow"></div>
+    <button class="rail-btn active" data-tab="dashboard">Dashboard</button>
+    <button class="rail-btn" data-tab="roadmap">Roadmap</button>
+    <button class="rail-btn" data-tab="assistant">Assistant</button>
+    <button class="rail-btn" data-tab="resources">Resources</button>
+    <button class="rail-btn" data-tab="timer">Study Timer</button>
+    <button class="rail-btn" data-tab="log">Officer's Log</button>
+    <div class="stardate" id="stardate">STARDATE —</div>
+  </nav>
+
+  <main>
+
+    <!-- DASHBOARD -->
+    <section id="view-dashboard" class="view">
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-value" id="stat-progress">0%</div><div class="stat-label">Overall Readiness</div></div>
+        <div class="stat"><div class="stat-value" id="stat-milestones">0/0</div><div class="stat-label">Milestones</div></div>
+        <div class="stat"><div class="stat-value" id="stat-hours">0.0h</div><div class="stat-label">Study Hours</div></div>
+        <div class="stat"><div class="stat-value" id="stat-logs">0</div><div class="stat-label">Log Entries</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Vector Breakdown</div>
+        <div id="dash-vectors"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Data Operations</div>
+        <button class="btn" id="btn-export">Export progress (.json)</button>
+        <label class="btn secondary" style="display:inline-block; margin-left:8px;">
+          Import
+          <input type="file" id="btn-import" accept="application/json" style="display:none;">
+        </label>
+        <button class="btn secondary" id="btn-reset" style="margin-left:8px; color:var(--lcars-alert);">Reset all progress</button>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="view-roadmap" class="view">
+      <div id="roadmap-content"></div>
+    </section>
+
+    <!-- ASSISTANT -->
+    <section id="view-assistant" class="view">
+      <div class="panel">
+        <span class="mode-badge static" id="mode-badge">● checking backend…</span>
+        <div class="console-log" id="console-log">
+          <div class="console-entry system">Command console online. Ask about a concept, an error, or type a topic you're stuck on. I'll guide you toward the answer, not hand it to you.</div>
+        </div>
+        <form id="console-form" class="console-input-row">
+          <input type="text" class="text-input" id="console-input" placeholder="e.g. 'stuck on recursion' or 'why separate frontend and backend'" autocomplete="off">
+          <button type="submit" class="btn">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="view-resources" class="view">
+      <div class="panel">
+        <div class="panel-title">Curated Resource Feed</div>
+        <div id="resources-meta" style="font-size:12px; color:var(--text-dim); margin-bottom:10px;"></div>
+        <div id="resources-list"></div>
+      </div>
+    </section>
+
+    <!-- TIMER -->
+    <section id="view-timer" class="view">
+      <div class="panel" style="text-align:center;">
+        <div class="panel-title">Study Session</div>
+        <div id="timer-display" style="font-family: var(--font-mono); font-size: 40px; margin: 10px 0;">00:00:00</div>
+        <input type="text" class="text-input" id="timer-note" placeholder="What are you working on?" style="max-width:320px; margin: 0 auto 12px;">
+        <div>
+          <button class="btn" id="timer-start">Start</button>
+          <button class="btn secondary" id="timer-stop" disabled>Stop &amp; log</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Session History</div>
+        <div id="timer-history"></div>
+      </div>
+    </section>
+
+    <!-- LOG -->
+    <section id="view-log" class="view">
+      <div class="panel">
+        <div class="panel-title">New Entry</div>
+        <textarea id="log-input" rows="3" placeholder="Record today's stardate entry…"></textarea>
+        <button class="btn" id="log-submit" style="margin-top:10px;">Log entry</button>
+      </div>
+      <div id="log-entries"></div>
+    </section>
+
+  </main>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

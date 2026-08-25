@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Backend secrets
+backend/.env
+
+# OS / editor cruft
+.DS_Store
+.vscode/*
+!.vscode/extensions.json

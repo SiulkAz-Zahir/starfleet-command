@@ -1,0 +1,42 @@
+{
+  "vectors": [
+    { "id": "alpha", "name": "Vector Alpha: Cybersecurity & AI/ML", "color": "#4f8ef7" },
+    { "id": "beta",  "name": "Vector Beta: Software & Systems Craft", "color": "#e8a33d" },
+    { "id": "gamma", "name": "Vector Gamma: Language & Migration Readiness", "color": "#4ec98b" },
+    { "id": "delta", "name": "Vector Delta: Physical & Field Readiness", "color": "#c25dd6" }
+  ],
+  "phases": [
+    {
+      "id": "p1",
+      "name": "Phase 1: Foundations",
+      "milestones": [
+        { "id": "p1m1", "vector": "beta",  "text": "Finish this project's backend module and explain, in your own words, why the frontend and backend are separate services" },
+        { "id": "p1m2", "vector": "beta",  "text": "Complete CS50P (Python) or an equivalent structured fundamentals course" },
+        { "id": "p1m3", "vector": "alpha", "text": "Finish the current cybersecurity technical program" },
+        { "id": "p1m4", "vector": "alpha", "text": "Finish the current AI/ML program module in progress" },
+        { "id": "p1m5", "vector": "gamma", "text": "Reach A2 French (basic conversation) via Alliance Française or self-study" },
+        { "id": "p1m6", "vector": "delta", "text": "Establish a baseline functional fitness routine (3x/week)" }
+      ]
+    },
+    {
+      "id": "p2",
+      "name": "Phase 2: Portfolio & Proof",
+      "milestones": [
+        { "id": "p2m1", "vector": "beta",  "text": "Deploy this Starfleet console publicly on GitHub Pages with a working GitHub Actions data refresh" },
+        { "id": "p2m2", "vector": "alpha", "text": "Publish the NIDS project with a clear README, architecture diagram, and results write-up" },
+        { "id": "p2m3", "vector": "alpha", "text": "Earn one free-tier cert (TryHackMe path, Security+, or Google Cybersecurity Cert)" },
+        { "id": "p2m4", "vector": "gamma", "text": "Reach B1 French (comfortable daily conversation)" },
+        { "id": "p2m5", "vector": "delta", "text": "Complete a FEMA ICS-100/200 or NWCG free course" }
+      ]
+    },
+    {
+      "id": "p3",
+      "name": "Phase 3: Launch",
+      "milestones": [
+        { "id": "p3m1", "vector": "beta",  "text": "Ship a second self-designed project end-to-end (idea to deployed) without AI writing the architecture for you" },
+        { "id": "p3m2", "vector": "alpha", "text": "Apply to remote-eligible Canadian employers in GRC, detection engineering, or security data analytics" },
+        { "id": "p3m3", "vector": "gamma", "text": "Confirm Express Entry proof-of-funds and documentation readiness" }
+      ]
+    }
+  ]
+}

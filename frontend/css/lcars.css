@@ -1,0 +1,187 @@
+/* ============================================================
+   DESIGN TOKENS
+   Palette named after LCARS console blocks. Change these six
+   values and the whole console re-themes.
+   ============================================================ */
+:root {
+  --void:        #000000;   /* page background */
+  --panel:       #0d0e12;   /* card / panel surface */
+  --panel-raised:#16181f;
+  --hull:        #232530;   /* borders, dividers */
+  --text:        #eae6e0;   /* primary text, warm off-white */
+  --text-dim:    #8b8b95;
+
+  --lcars-orange: #ff9c34;  /* primary accent / nav */
+  --lcars-peach:  #f5c26b;
+  --lcars-lilac:  #cc99cc;  /* secondary accent */
+  --lcars-blue:   #9999ff;  /* info / links */
+  --lcars-alert:  #cc6666;  /* danger / destructive */
+  --lcars-green:  #7fd99a;  /* success / done */
+
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", Consolas, "Roboto Mono", monospace;
+
+  --radius-elbow: 26px;
+  --radius-sm: 8px;
+  --t: 160ms cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--void);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   SHELL — the elbow header is the signature element: a nav
+   bar that reads as an LCARS console panel, not a generic tab
+   strip. It's the one place we spend visual budget.
+   ============================================================ */
+.shell {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+@media (max-width: 820px) {
+  .shell { grid-template-columns: 1fr; }
+  .console-rail { flex-direction: row; overflow-x: auto; border-radius: 0; }
+  .console-rail .elbow { display: none; }
+}
+
+.console-rail {
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px;
+  gap: 6px;
+  border-right: 6px solid var(--lcars-orange);
+}
+.elbow {
+  height: 64px;
+  border-radius: var(--radius-elbow) var(--radius-elbow) 0 0;
+  background: var(--lcars-orange);
+  margin-bottom: 14px;
+}
+.rail-btn {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+  text-align: left;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px 0 0 999px;
+  background: var(--panel-raised);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: background var(--t), color var(--t), padding var(--t);
+}
+.rail-btn:hover { background: var(--hull); color: var(--text); }
+.rail-btn.active {
+  background: var(--lcars-orange);
+  color: var(--void);
+  padding-left: 22px;
+  font-weight: 600;
+}
+.stardate {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  padding: 10px 16px;
+}
+
+main { padding: 24px; max-width: 980px; }
+
+.panel {
+  border: 1px solid var(--hull);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+  padding: 18px;
+  margin-bottom: 14px;
+}
+.panel-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 14px;
+  color: var(--lcars-peach);
+  margin-bottom: 12px;
+}
+
+.view { display: none; }
+.view.active { display: block; }
+
+/* stat blocks */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 700px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+.stat { text-align: center; padding: 14px; background: var(--panel-raised); border-radius: var(--radius-sm); }
+.stat-value { font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
+
+/* progress bars */
+.bar-track { height: 10px; background: var(--panel-raised); border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 999px; transition: width var(--t); }
+.vector-row { margin-bottom: 12px; }
+.vector-row .row-head { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+
+/* milestone rows */
+.milestone {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid var(--hull);
+}
+.milestone:last-child { border-bottom: none; }
+.milestone input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--lcars-orange); }
+.milestone.done span.mtext { color: var(--text-dim); text-decoration: line-through; }
+
+/* buttons / inputs */
+.btn {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: none;
+  background: var(--lcars-lilac);
+  color: var(--void);
+  cursor: pointer;
+}
+.btn:hover { opacity: 0.85; }
+.btn.secondary { background: var(--panel-raised); color: var(--text); border: 1px solid var(--hull); }
+.text-input, textarea {
+  width: 100%; font: inherit; color: var(--text);
+  background: var(--panel-raised); border: 1px solid var(--hull);
+  border-radius: var(--radius-sm); padding: 10px 12px;
+}
+.text-input:focus, textarea:focus { outline: 2px solid var(--lcars-blue); outline-offset: 1px; }
+
+/* resource cards */
+.resource {
+  padding: 12px; border-radius: var(--radius-sm); background: var(--panel-raised);
+  margin-bottom: 8px; border-left: 3px solid var(--lcars-blue);
+}
+.resource a { color: var(--lcars-blue); font-weight: 600; text-decoration: none; }
+.resource a:hover { text-decoration: underline; }
+.resource .meta { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+
+/* assistant console */
+.console-log { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; max-height: 50vh; overflow-y: auto; }
+.console-entry { padding: 10px 12px; border-radius: var(--radius-sm); font-size: 14px; }
+.console-entry.user { background: var(--panel-raised); align-self: flex-end; max-width: 85%; }
+.console-entry.system { background: rgba(153,153,255,0.08); border-left: 3px solid var(--lcars-blue); }
+.console-entry .pointer { display: block; font-size: 12px; margin-top: 6px; }
+.console-input-row { display: flex; gap: 8px; }
+.mode-badge {
+  display: inline-block; font-family: var(--font-mono); font-size: 11px;
+  padding: 3px 8px; border-radius: 999px; margin-bottom: 10px;
+}
+.mode-badge.static { background: rgba(204,153,204,0.15); color: var(--lcars-lilac); }
+.mode-badge.bridge { background: rgba(127,217,154,0.15); color: var(--lcars-green); }
+
+.empty { text-align: center; padding: 24px; color: var(--text-dim); font-size: 13px; }

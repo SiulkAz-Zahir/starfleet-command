@@ -1,0 +1,76 @@
+[
+  {
+    "keywords": ["function", "def", "functions"],
+    "hint": "Before I point you anywhere: can you say what goes IN and what comes OUT of the function you're stuck on? If you can't name the inputs and the return value yet, that's the actual blocker — pin that down first.",
+    "pointers": [
+      { "label": "Python official tutorial — Defining Functions", "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions" }
+    ]
+  },
+  {
+    "keywords": ["recursion", "recursive"],
+    "hint": "Every recursive function needs two things: a base case (when does it stop?) and a case that makes the problem smaller each call. Which one are you missing?",
+    "pointers": [
+      { "label": "Real Python — Thinking Recursively", "url": "https://realpython.com/python-recursion/" }
+    ]
+  },
+  {
+    "keywords": ["api", "rest", "endpoint", "request"],
+    "hint": "An API is a contract: what does the client send, and what shape does the server promise to send back? Write that contract down on paper before writing the route handler.",
+    "pointers": [
+      { "label": "MDN — What is a REST API?", "url": "https://developer.mozilla.org/en-US/docs/Glossary/REST" },
+      { "label": "FastAPI — First Steps", "url": "https://fastapi.tiangolo.com/tutorial/first-steps/" }
+    ]
+  },
+  {
+    "keywords": ["fastapi", "backend", "server", "uvicorn"],
+    "hint": "FastAPI routes are just Python functions with a decorator telling it which URL and HTTP verb triggers them. What URL should trigger your function, and what should it return?",
+    "pointers": [
+      { "label": "FastAPI official tutorial", "url": "https://fastapi.tiangolo.com/tutorial/" }
+    ]
+  },
+  {
+    "keywords": ["git", "commit", "branch", "merge"],
+    "hint": "Git tracks snapshots, not files. Before committing, run `git status` and `git diff` — can you describe, in one sentence, what changed since the last commit?",
+    "pointers": [
+      { "label": "Git official docs", "url": "https://git-scm.com/doc" },
+      { "label": "GitHub Docs — GitHub Pages", "url": "https://docs.github.com/en/pages" }
+    ]
+  },
+  {
+    "keywords": ["prompt", "prompting", "llm", "token", "tokens"],
+    "hint": "A good prompt usually has: a role, a task, constraints, and an output format. Which of those four is missing from the prompt that isn't working?",
+    "pointers": [
+      { "label": "Anthropic — Prompt engineering overview", "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" },
+      { "label": "promptingguide.ai", "url": "https://www.promptingguide.ai/" }
+    ]
+  },
+  {
+    "keywords": ["dict", "dictionary", "list", "array"],
+    "hint": "Ask yourself: do I need to look things up by a name/key (dict), or do I just need an ordered sequence (list)? That answers your data structure question before you write a line of code.",
+    "pointers": [
+      { "label": "Python docs — Data Structures", "url": "https://docs.python.org/3/tutorial/datastructures.html" }
+    ]
+  },
+  {
+    "keywords": ["architecture", "design", "structure", "organize"],
+    "hint": "A useful first question for any architecture decision: what changes independently of what? Things that change together belong together; things that change separately belong in separate modules.",
+    "pointers": [
+      { "label": "The Twelve-Factor App", "url": "https://12factor.net/" },
+      { "label": "Refactoring Guru — Design Patterns", "url": "https://refactoring.guru/design-patterns" }
+    ]
+  },
+  {
+    "keywords": ["ollama", "local model", "local llm"],
+    "hint": "Bridge Mode isn't detected right now, which usually means the local backend isn't running. Have you started it with `uvicorn main:app --reload` inside /backend?",
+    "pointers": [
+      { "label": "Ollama", "url": "https://ollama.com" }
+    ]
+  },
+  {
+    "keywords": ["error", "traceback", "exception", "bug", "debug"],
+    "hint": "Read the LAST line of the traceback first, not the first — that's the actual exception. What type of error is it, and what line number does it point to?",
+    "pointers": [
+      { "label": "Python docs — Errors and Exceptions", "url": "https://docs.python.org/3/tutorial/errors.html" }
+    ]
+  }
+]
